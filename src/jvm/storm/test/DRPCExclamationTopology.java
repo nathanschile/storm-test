@@ -34,7 +34,12 @@ public class DRPCExclamationTopology {
         public void declareOutputFields(OutputFieldsDeclarer declarer) {
             declarer.declare(new Fields("id", "result"));
         }
-    
+
+        @Override
+        public Map<String, Object> getComponentConfiguration() {
+            return null;
+        }
+
     }
 
     public static StormTopology makeTopology(LocalDRPC drpc) {

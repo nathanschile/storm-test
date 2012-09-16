@@ -88,7 +88,17 @@ public class MultiStreamFeederSpout implements ISpout {
   public void close() {
   }
 
-  public void nextTuple() {
+    @Override
+    public void activate() {
+
+    }
+
+    @Override
+    public void deactivate() {
+
+    }
+
+    public void nextTuple() {
     FixedTuple tuple = null;
     tuple = (FixedTuple) InprocMessaging.pollMessage(_id);
 

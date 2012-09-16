@@ -1,7 +1,8 @@
 (ns storm.test.test.visualization
   (:use [clojure.test])
   (:use [storm.test.visualization])
-  (:use [backtype.storm.clojure]))
+  (:use [backtype.storm.clojure])
+  (:import [storm.test NateTopology]))
 
 (defbolt a-bolt ["word"] [tuple collector]
   (do
@@ -42,4 +43,12 @@
                                ["counter" "dirty"] :shuffle
                                ["counter" "nice"] :shuffle}
                               a-bolt)}) ]
+    (println (topology-to-dot topo))))
+
+(deftest not-really-a-test2
+  (let [ topo (NateTopology/createTopology) ]
+    (println (topology-to-dot topo))))
+
+(deftest not-really-a-test-remote
+  (let [ topo (NateTopology/getRemoteTopology) ]
     (println (topology-to-dot topo))))
